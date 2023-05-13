@@ -10,16 +10,16 @@
         <link rel="stylesheet" href="css/estilos.css" />
   </head>
   <body>
-    <form action="" class="formulario">
-      <img src="logo.jpg" class="imgLogo" />
+  <form action="" class="formulario">
+    <img src="logo.jpg" class="imgLogo" />
 
-      <h3 class="formulario__subtitulo">Reservas</h3>
-      <p class="formulario__parrafo">
+    <h3 class="formulario__subtitulo">Reservas</h3>
+    <p class="formulario__parrafo">
         Formulario para agendar un paseo canino
-      </p>
+    </p>
 
-      <label for="cliente" class="formulario__label">¿Cuál es tu nombre?</label>
-      <input
+    <label for="cliente" class="formulario__label">¿Cuál es tu nombre?</label>
+    <input
         id="cliente"
         type="text"
         class="formulario__input"
@@ -27,7 +27,7 @@
       />
 		
 		 <label for="alcliente" class="formulario__label">Contacto de emergencias</label>
-      <input
+    <input
         id="alcliente"
         type="text"
         class="formulario__input"
@@ -35,7 +35,7 @@
       />
 		
 		 <label for="telcliente" class="formulario__label">Numero de telefono</label>
-      <input
+    <input
         id="telcliente"
         type="text"
         class="formulario__input"
@@ -52,12 +52,12 @@
         placeholder="Indica cuál es el nombre de tu mascota"
       />
 		
-		<label for="gperro" class="formulario__label" >Genero de la mascota</label>
+	<label for="gperro" class="formulario__label" >Genero de la mascota</label>
       <select id="gperro" name="listagperro" class="formulario__input">
 	    <option value="" disabled selected></option>
         <option>un macho</option>
         <option>una hembrita</option>
-	    </select>
+    </select>
 		
 		 <label for="tperro" class="formulario__label" >Tamano del perro</label>
       <select id="tperro" name="listatperro" class="formulario__input">
@@ -75,7 +75,7 @@
         placeholder="En caso de no ser alergico a nada, escribir 'Ninguna' "
 />
 		 <label for="cperro" class="formulario__label" >Comportamiento del perro</label>
-      <select id="cperro" name="listacperro" class="formulario__input">
+    <select id="cperro" name="listacperro" class="formulario__input">
 	<option value="" disabled selected></option>
         <option>Docil</option>
         <option>Agresivo</option>
@@ -107,7 +107,7 @@
       >
       <input id="hora" type="time" class="formulario__input" />
 
-      <label for="empleado" class="formulario__label"
+    <label for="empleado" class="formulario__label"
         >Paseador de preferencia</label >
      
      
@@ -123,17 +123,29 @@
       </select>
 		
 	  <label for="coment" class="formulario__label">Comentarios</label>
-      <input
+    <input
         id="coment"
         type="text"
         class="formulario__input"
         placeholder="Si no tiene comentarios escriba 'Ninguno' "
       />
 
-      <div id="respuesta"></div>
-
-      <button id="submit" class="formulario__submit">Enviar a WhatsApp</button>
+    <div id="respuesta"></div>
+    <center><button id="submit" class="formulario__submit">Enviar a WhatsApp</button>
+	<p><a href="https://www.freecodecamp.org/">
+    </a></p>
+	
+		
+				
+	<center>
+  <a href="../index.html">
+    <button>Regresar</button>
+  </a>
+</center>
+		
+    <p>&nbsp;</p>
     </form>
+	  
     <script src="js/form.js"></script>
   </body>
 </html>
