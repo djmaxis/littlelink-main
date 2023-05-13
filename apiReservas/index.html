@@ -34,6 +34,45 @@
         class="formulario__input"
         placeholder="Indica cuál es el nombre de tu mascota"
       />
+		
+		<label for="gperro" class="formulario__label" >Genero de la mascota</label>
+      <select id="gperro" name="listagperro" class="formulario__input">
+	    <option value="" disabled selected></option>
+        <option>Macho</option>
+        <option>Hembra</option>
+	    </select>
+		
+		 <label for="tperro" class="formulario__label" >Tamano del perro</label>
+      <select id="tperro" name="listatperro" class="formulario__input">
+<option value="" disabled selected></option>
+        <option>Pequeno</option>
+        <option>Mediano</option>
+	    <option>Grande</option>
+      </select>
+		
+		<label for="alperro" class="formulario__label">Mencione a que es alergico tu perro</label>
+      <input
+        id="alperro"
+        type="text"
+        class="formulario__input"
+        placeholder="En caso de no ser alergico a nada, escribir 'Ninguna' "
+/>
+		 <label for="cperro" class="formulario__label" >Comportamiento del perro</label>
+      <select id="cperro" name="listacperro" class="formulario__input">
+	<option value="" disabled selected></option>
+        <option>Docil</option>
+        <option>Agresivo</option>
+	    <option>Amigable</option>
+      </select>
+		
+		 <label for="sperro" class="formulario__label"
+        >Convivencia con otros perros</label>
+		
+      <select id="sperro" name="listasperro" class="formulario__input">
+	<option value="" disabled selected></option>
+        <option>Sociable con otros perros</option>
+        <option>Antisociable con otros perros</option>
+      </select>
 
 
       <label for="fecha" class="formulario__label"
@@ -55,7 +94,7 @@
         >Paseador de preferencia</label
       >
       <select id="empleado" name="listaempleados" class="formulario__input">
-	<option value="" disabled selected>
+	<option value="" disabled selected></option>
         <option>Enrique Escano</option>
         <option>Carlin Serrada</option>
       </select>
@@ -64,12 +103,14 @@
         >¿Cuál es el servicio que se desea realizar?</label
       >
       <select id="servicio" name="listaservicios" class="formulario__input">
-	 <option value="" disabled selected>
+	 <option value="" disabled selected></option>
         <option>PAQUETE 1 - $2000</option>
         <option>PAQUETE 2 - $3000</option>
         <option>PAQUETE 3 - $4000</option>
         <option>PAQUETE 4 - $5000</option>
       </select>
+		
+		 
 
       <div id="respuesta"></div>
 
