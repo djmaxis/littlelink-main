@@ -7,6 +7,11 @@
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
     />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	  <link rel="stylesheet" href="../littlelink-main/css/skeleton-auto.css">
+
+    <!-- Brand Styles -->
+    <link rel="stylesheet" href="../littlelink-main/css/brands.css">
+
     <title>Reservas MI NEGOCIO</title>
     <link rel="stylesheet" href="css/estilos.css" />
   </head>
@@ -14,10 +19,10 @@
     <form action="" class="formulario">
       <img src="logo.jpg" class="imgLogo" />
 
-      <h1 class="formulario__titulo">MI NEGOCIO</h1>
+      <
       <h3 class="formulario__subtitulo">Reservas</h3>
       <p class="formulario__parrafo">
-        Llena este pequeño formulario para agendar tu cita en MI NEGOCIO.
+        Llena este pequeño formulario para agendar la recogida de nuestro amiguito
       </p>
 
       <label for="cliente" class="formulario__label">¿Cuál es tu nombre?</label>
@@ -42,27 +47,45 @@
         >Indica la hora de tu reserva</label
       >
       <input id="hora" type="time" class="formulario__input" />
-
-      <label for="empleado" class="formulario__label"
-        >EMPLEADO de preferencia</label
+	  
+	  
+	<label for="empleado" class="formulario__label"
+        >Paseador de preferencia</label
       >
       <select id="empleado" name="listaempleados" class="formulario__input">
-        <option>EMPLEADO 1</option>
-        <option>EMPLEADO 2</option>
+		  <option value="" style="display:none;"></option>
+		<option>Enrique Escano</option>
+        <option>Carlin Serrada</option>
+      </select>
+	  
+        >Cuantas horas necesitas el servicio&nbsp;</label
+      >
+      <select id="empleado" name="listaempleados" class="formulario__input">
+		  <option value="" style="display:none;"></option>
+        <option>1 HORA</option>
+        <option>2 HORAS</option>
+		  <option>3 HORAS</option>
+		  <option>4 HORAS</option>
+		  <option>5 HORAS</option>
+		  <option>6 HORAS</option>
+		  <option>7 HORAS</option>
       </select>
 
       <label for="servicio" class="formulario__label"
         >¿Cuál es el servicio que se desea realizar?</label
       >
       <select id="servicio" name="listaservicios" class="formulario__input">
-        <option>SERVICIO 1 - $VALOR</option>
-        <option>SERVICIO 2 - $VALOR</option>
-        <option>SERVICIO 3 - $VALOR</option>
-        <option>SERVICIO 4 - $VALOR</option>
-        <option>SERVICIO 5 - $VALOR</option>
+		  <option value="" style="display:none;"></option>
+        <option>PAQUETE 1 - $500</option>
+        <option>PAQUETE 2 - $800</option>
+        <option>PAQUETE 3 - $1200</option>
+        <option>PAQUETE 4 - $2000</option>
+        <option>PAQUETE 5 - $6000</option>
       </select>
 
       <div id="respuesta"></div>
+	  
+	  <a class="button button-default" href="../index.html" role="button"><img class="icon" src="../images/icons/generic-homepage.svg" alt="">Regresar</a><br>
 
       <button id="submit" class="formulario__submit">Enviar a WhatsApp</button>
     </form>
