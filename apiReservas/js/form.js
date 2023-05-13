@@ -19,12 +19,13 @@ document.querySelector("#submit").addEventListener("click", e => {
 		*Buenas*%0A%0A
 		*Mi nombre es:*%0A
 		${cliente}%0A
-		*Quiero reservar para: el:*%0A
+		*Quiero reservar para el:*%0A
 		${fecha} a las ${hora}%0A
-		*Empleado de preferencia*%0A
+		*Mi paseador sera:*%0A
 		${empleado}%0A
-		*¿Cuál es el servicio que se desea realizar?*%0A
-		${servicio}`;
+		*Seleccione este servicio*%0A
+		${servicio}%0A%0A
+         Gracias!`;
 
   if (cliente === "" || fecha === "" || hora === "") {
     resp.classList.add("fail");
