@@ -26,14 +26,14 @@ document.querySelector("#submit").addEventListener("click", e => {
 *Mi nombre es:*%0A
 ${cliente}%0A
 *Yo eleji este servicio:*%0A
-${servicio}%0A%0A
+${servicio}%0A
 *Quiero reservar para el:*%0A
 ${fecha} a las ${hora}%0A
 *Mi paseador:*%0A
 ${empleado}%0A
-*Estara ciudando a:%0A
+*Estara ciudando a:*%0A
 ${perro}%0A
-Recuerden que ${perro} es de genero ${gperro}, tamano ${tperro}, alergic@ a ${alperro} y tiene un comportamiento ${cperro}, ademas ${perro} tiene un comportamiento ${sperro}`;
+Recuerden que *${perro}* es de genero ${gperro}, tamano ${tperro}, alergic@ a ${alperro} y tiene un comportamiento ${cperro}, ademas *${perro}* tiene un comportamiento ${sperro}`;
 
   if (cliente === "" || fecha === "" || hora === "") {
     resp.classList.add("fail");
