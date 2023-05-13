@@ -26,6 +26,23 @@
         placeholder="Indica cuál es tu nombre completo"
       />
 		
+		 <label for="alcliente" class="formulario__label">Contacto de emergencias</label>
+      <input
+        id="alcliente"
+        type="text"
+        class="formulario__input"
+        placeholder="Nombre completo del contacto emergencias"
+      />
+		
+		 <label for="telcliente" class="formulario__label">Numero de telefono</label>
+      <input
+        id="telcliente"
+        type="text"
+        class="formulario__input"
+        placeholder="No incluya guiones ni espacio"
+      />
+		
+		
 		
 		 <label for="perro" class="formulario__label">¿Cuál es el nombre de la mascota?</label>
       <input
@@ -38,16 +55,16 @@
 		<label for="gperro" class="formulario__label" >Genero de la mascota</label>
       <select id="gperro" name="listagperro" class="formulario__input">
 	    <option value="" disabled selected></option>
-        <option>Macho</option>
-        <option>Hembra</option>
+        <option>un macho</option>
+        <option>una hembrita</option>
 	    </select>
 		
 		 <label for="tperro" class="formulario__label" >Tamano del perro</label>
       <select id="tperro" name="listatperro" class="formulario__input">
 <option value="" disabled selected></option>
-        <option>Pequeno</option>
-        <option>Mediano</option>
-	    <option>Grande</option>
+        <option>pequeno</option>
+        <option>mediano</option>
+	    <option>grande</option>
       </select>
 		
 		<label for="alperro" class="formulario__label">Mencione a que es alergico tu perro</label>
@@ -91,14 +108,9 @@
       <input id="hora" type="time" class="formulario__input" />
 
       <label for="empleado" class="formulario__label"
-        >Paseador de preferencia</label
-      >
-      <select id="empleado" name="listaempleados" class="formulario__input">
-	<option value="" disabled selected></option>
-        <option>Enrique Escano</option>
-        <option>Carlin Serrada</option>
-      </select>
-
+        >Paseador de preferencia</label >
+     
+     
       <label for="servicio" class="formulario__label"
         >¿Cuál es el servicio que se desea realizar?</label
       >
@@ -110,7 +122,13 @@
         <option>PAQUETE 4 - $5000</option>
       </select>
 		
-		 
+	  <label for="coment" class="formulario__label">Comentarios</label>
+      <input
+        id="coment"
+        type="text"
+        class="formulario__input"
+        placeholder="Si no tiene comentarios escriba 'Ninguno' "
+      />
 
       <div id="respuesta"></div>
 
