@@ -5,6 +5,7 @@ document.querySelector("#submit").addEventListener("click", e => {
   const telefono = "+18295463303";
 
   const cliente = document.querySelector("#cliente").value;
+  const perro = document.querySelector("#perro").value;
   const fecha = document.querySelector("#fecha").value;
   const hora = document.querySelector("#hora").value;
   const empleado = document.querySelector("#empleado").value;
@@ -21,9 +22,11 @@ document.querySelector("#submit").addEventListener("click", e => {
 		${cliente}%0A
 		*Quiero reservar para el:*%0A
 		${fecha} a las ${hora}%0A
-		*Mi paseador sera:*%0A
+		*Mi paseador:*%0A
 		${empleado}%0A
-		*Seleccione este servicio*%0A
+        *Estara ciudando a:%0A
+        ${perro}%0A
+		*Yo eleji este servicio:*%0A
 		${servicio}%0A%0A
          Gracias!`;
 
