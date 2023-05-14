@@ -109,6 +109,6 @@ button:hover {
 
 
 input[type="number"] {
-  width: 20px; /* casilla de cantidad Cambia este valor según lo desees */
+  width: 30px; /* casilla de cantidad Cambia este valor según lo desees */
   margin-bottom: 1rem;
 }
