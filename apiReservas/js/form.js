@@ -1,7 +1,62 @@
+// para radio de alergico
+
+document.getElementById("siAlergia").addEventListener("click", function () {
+  document.getElementById("alperro").value = "";
+});
+
+document.getElementById("noAlergia").addEventListener("click", function () {
+  document.getElementById("alperro").value = "nada";
+});
+
+
+// // para radio de tratamiento
+	
+document.getElementById("sit").addEventListener("change", function () {
+  if (this.checked) {
+    document.getElementById("ttrata").value = "";
+  }
+});
+
+document.getElementById("not").addEventListener("change", function () {
+  if (this.checked) {
+    document.getElementById("ttrata").value = "Sin tratamiento";
+  }
+});
+
+document.getElementById("not").addEventListener("click", function () {
+  document.getElementById("horatra").style.display = "none";
+  document.getElementById("horatra_label").style.display = "none";
+});
+
+document.getElementById("sit").addEventListener("click", function () {
+  document.getElementById("horatra").style.display = "inline";
+  document.getElementById("horatra_label").style.display = "block";
+});
+
+//ejecuta ambos radios !!!cuidado!!!
+
 document.querySelector("#submit").addEventListener("click", e => {
   e.preventDefault();
+	
+
+	//
+	
+function validarTelefono(telefono) {
+  const telefonoValido = /^8(?:0[9]|2[89]|49)\d{7}$/.test(telefono); // Validar formato del n˙mero de telÈfono
+
+  const telError = document.getElementById('telError');
+  if (telefonoValido) {
+    telError.style.display = 'none';
+  } else {
+    telError.style.display = 'block';
+  }
+}
+
+
 
   //INGRESE UN NUMERO DE WHATSAPP VALIDO AQUI:
+	
+	
   const telefono = "+18295463303";
 
   const cliente = document.querySelector("#cliente").value;
@@ -17,6 +72,12 @@ document.querySelector("#submit").addEventListener("click", e => {
   const coment = document.querySelector("#coment").value;
   const alcliente = document.querySelector("#alcliente").value;           
   const telcliente = document.querySelector("#telcliente").value;
+	
+  /*const trata = document.querySelector("#trata").value;*/
+	
+  const ttrata = document.querySelector("#ttrata").value;           
+  const horatra = document.querySelector("#horatra").value;
+	
   const resp = document.querySelector("#respuesta");
 
   resp.classList.remove("fail");
@@ -37,7 +98,7 @@ ${fecha} a las ${hora}%0A
 ${servicio}%0A
 *Para mi querid@:*%0A
 üêæ${perro}üêæ%0A%0A
-Recuerden que *${perro}* es *${gperro}* de tamano *${tperro}* con alergias a *${alperro}*, comportamiento *${cperro}* y *${perro}* puede ser *${sperro}.*%0A%0A
+Recuerden que *${perro}* es *${gperro}* de tamano *${tperro}* con alergias a *${alperro}*, comportamiento *${cperro}*, ademas *${perro}* puede ser *${sperro}.* Actualente *${perro}*a utiliza este tipo de tratamiento: *${ttrata}* - ${horatra}%0A%0A
 *Comentario:*%0A
 ${coment}`;
 
