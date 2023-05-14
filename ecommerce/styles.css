@@ -100,3 +100,10 @@ button:hover {
   font-weight: bold;
   margin-top: 5px;
 }
+
+/* Archivo CSS */
+.eliminar-btn {
+  background-color: #ff4d4d; /* Cambia el color de fondo a rojo */
+  padding: 0.10rem 0.2rem; /* Reduce el relleno para que el botón sea más pequeño */
+  font-size: 0.3rem; /* Reduce el tamaño de la fuente */
+}

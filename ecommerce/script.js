@@ -33,6 +33,7 @@ function eliminarDelCarrito(id) {
   actualizarCarrito();
 }
 
+// Archivo JavaScript
 function actualizarCarrito() {
   const carritoDiv = document.getElementById('carrito');
   const totalSpan = document.getElementById('total');
@@ -42,7 +43,7 @@ function actualizarCarrito() {
   for (const id in carrito) {
     const producto = carrito[id];
     total += producto.precio * producto.cantidad;
-    carritoDiv.innerHTML += `<p>${producto.cantidad} Unidad de ${producto.nombre} a $${producto.precio} = $${producto.precio * producto.cantidad} <button onclick="eliminarDelCarrito(${id})">Eliminar</button></p>`;
+    carritoDiv.innerHTML += `<p>${producto.cantidad} Unidad de ${producto.nombre} a $${producto.precio} = $${producto.precio * producto.cantidad} <button class="eliminar-btn" onclick="eliminarDelCarrito(${id})">Eliminar</button></p>`;
   }
 
   totalSpan.textContent = total;
