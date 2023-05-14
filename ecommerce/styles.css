@@ -24,9 +24,8 @@ main {
   border-radius: 4px;
   padding: 1rem;
   text-align: center;
-  width: 1%; /* Cambia este valor según lo desees */
-  margin-right: 1px;
-  margin-bottom: 1px;
+  width: 10%; /* Cambia este valor según lo desees */
+  height: auto; /* Cambia este valor según lo desees */
 }
 
 /* Estilos para pantallas grandes (escritorio) */
@@ -104,6 +103,12 @@ button:hover {
 /* Archivo CSS */
 .eliminar-btn {
   background-color: #ff4d4d; /* Cambia el color de fondo a rojo */
-  padding: 0.10rem 0.2rem; /* Reduce el relleno para que el botón sea más pequeño */
-  font-size: 0.3rem; /* Reduce el tamaño de la fuente */
+  padding: 0.60rem 0.60rem; /* Reduce el relleno para que el botón sea más pequeño */
+  font-size: 0.7rem; /* Reduce el tamaño de la fuente */
+}
+
+
+input[type="number"] {
+  width: 20px; /* casilla de cantidad Cambia este valor según lo desees */
+  margin-bottom: 1rem;
 }
