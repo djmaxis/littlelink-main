@@ -30,7 +30,7 @@ function actualizarCarrito() {
 }
 
 function enviarCarrito() {
-  const telefono = "1234567890"; // Aquí debes ingresar el número de teléfono al que deseas enviar el mensaje
+  const telefono = "18295463303"; // Aquí debes ingresar el número de teléfono al que deseas enviar el mensaje
   let mensaje = 'Resumen de compra: %0A%0A';
   let total = 0;
 
