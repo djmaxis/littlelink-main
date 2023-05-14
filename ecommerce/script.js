@@ -55,6 +55,11 @@ function actualizarCarrito() {
 function enviarCarrito(e) {
   e.preventDefault();
 
+  if (Object.keys(carrito).length === 0) {
+    alert('No has agregado productos al carrito');
+    return;
+  }
+
   const nombre = document.getElementById('nombre').value;
   const telefono = document.getElementById('telefono').value;
   const direccion = document.getElementById('direccion').value;
