@@ -45,8 +45,8 @@ function actualizarCarrito() {
 
   for (const id in carrito) {
     const producto = carrito[id];
-    total += producto.precio * producto.cantidad;
-    carritoDiv.innerHTML += `<p>${producto.cantidad} Unidad de ${producto.nombre} a $${producto.precio} = $${producto.precio * producto.cantidad} <button class="eliminar-btn" onclick="eliminarDelCarrito(${id})">Eliminar</button></p>`;
+    total += producto.precio * producto.cantidad RD;
+    carritoDiv.innerHTML += `<p>${producto.cantidad} Unidad de ${producto.nombre} a $${producto.precio} RD = $${producto.precio * producto.cantidad} RD<button class="eliminar-btn" onclick="eliminarDelCarrito(${id})">Eliminar</button></p>`;
   }
 
   totalSpan.textContent = total;
@@ -71,10 +71,10 @@ function enviarCarrito(e) {
   for (const id in carrito) {
     const producto = carrito[id];
     total += producto.precio * producto.cantidad;
-    mensaje += `${producto.cantidad} - ${producto.nombre} de $${producto.precio}  hacen: $${producto.precio * producto.cantidad}\n`;
+    mensaje += `${producto.cantidad} - ${producto.nombre} de $${producto.precio}  hacen: $${producto.precio * producto.cantidad} RD\n`;
   }
 
-  mensaje += `\n*Total a pagar:* $${total}\n`;
+  mensaje += `\n*Total a pagar:* $${total} RD\n`;
 
   const url = `https://api.whatsapp.com/send?phone=18295463303&text=${encodeURIComponent(mensaje)}`;
   window.open(url, '_blank');
