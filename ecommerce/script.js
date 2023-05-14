@@ -77,7 +77,7 @@ function enviarCarrito(e) {
   mensaje += `\n*Total a pagar:* $${total}\n`;
 
   const url = `https://api.whatsapp.com/send?phone=$18295463303&text=${encodeURIComponent(mensaje)}`;
-  window.open(url, '_blank');
+  window.open(url);
 }
 
 function renderProductos() {
