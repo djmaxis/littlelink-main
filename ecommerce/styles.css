@@ -24,13 +24,20 @@ main {
   border-radius: 4px;
   padding: 1rem;
   text-align: center;
-  width: 45%;
+  width: 30%; /* Cambia este valor según lo desees */
   margin-right: 4px;
   margin-bottom: 4px;
 }
 
+/* Estilos para pantallas grandes (escritorio) */
+@media screen and (min-width: 1025px) {
+  .producto {
+    width: 30%; /* Cambia este valor según lo desees */
+  }
+}
+
 /* Estilos para pantallas medianas (tabletas) */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
   .producto {
     width: 45%; /* Cambia este valor según lo desees */
   }
