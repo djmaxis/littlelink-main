@@ -4,7 +4,7 @@ const productos = [
   { id: 3, nombre: 'Dispensador', precio: 550, imagen: 'imagenes/dispenser.jpg' },
   { id: 4, nombre: 'Cama', precio: 1800, imagen: 'imagenes/cama.jpg' },
   { id: 5, nombre: 'Casita', precio: 3000, imagen: 'imagenes/casita.jpg' },
-  { id: 6, nombre: 'Piscina', precio: 825, imagen: 'imagenes/piscina.jpg' },
+  { id: 6, nombre: 'Ducha', precio: 825, imagen: 'imagenes/piscina.jpg' },
 ];
 
 const carrito = {};
@@ -76,8 +76,8 @@ function enviarCarrito(e) {
 
   mensaje += `\n*Total a pagar:* $${total}\n`;
 
-  const url = `https://api.whatsapp.com/send?phone=$18295463303&text=${encodeURIComponent(mensaje)}`;
-  window.open(url);
+  const url = `https://api.whatsapp.com/send?phone=18295463303&text=${encodeURIComponent(mensaje)}`;
+  window.open(url, '_blank');
 }
 
 function renderProductos() {
