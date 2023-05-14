@@ -24,9 +24,9 @@ main {
   border-radius: 4px;
   padding: 1rem;
   text-align: center;
-  width: 30%; /* Cambia este valor según lo desees */
-  margin-right: 4px;
-  margin-bottom: 4px;
+  width: 1%; /* Cambia este valor según lo desees */
+  margin-right: 1px;
+  margin-bottom: 1px;
 }
 
 /* Estilos para pantallas grandes (escritorio) */
@@ -90,7 +90,7 @@ button:hover {
 #productos {
   display: flex;
   flex-wrap: wrap;
-  gap: 4px; /* Ajusta este valor para controlar el espacio entre los productos */
+  gap: 1px; /* Ajusta este valor para controlar el espacio entre los productos */
 }
 
 /* Archivo CSS */
@@ -98,7 +98,7 @@ button:hover {
   display: none;
   color: green;
   font-weight: bold;
-  margin-top: 5px;
+  margin-top: 1px;
 }
 
 /* Archivo CSS */
