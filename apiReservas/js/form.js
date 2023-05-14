@@ -13,8 +13,10 @@ document.querySelector("#submit").addEventListener("click", e => {
   const sperro = document.querySelector("#sperro").value;
   const fecha = document.querySelector("#fecha").value;
   const hora = document.querySelector("#hora").value;
-  const empleado = document.querySelector("#empleado").value;
-  const servicio = document.querySelector("#servicio").value;
+  const servicio = document.querySelector("#servicio").value;           
+  const coment = document.querySelector("#coment").value;
+  const alcliente = document.querySelector("#alcliente").value;           
+  const telcliente = document.querySelector("#telcliente").value;
   const resp = document.querySelector("#respuesta");
 
   resp.classList.remove("fail");
@@ -22,27 +24,31 @@ document.querySelector("#submit").addEventListener("click", e => {
 
   const url = `https://api.whatsapp.com/send?phone=${telefono}&text=
 		
-*Buenas*%0A%0A
+*Saludos!*%0A%0A
 *Mi nombre es:*%0A
 ${cliente}%0A
-*Yo eleji este servicio:*%0A
-${servicio}%0A
+*Contacto de emergencias:*%0A
+${alcliente}%0A
+*Telefono:*%0A
+https://api.whatsapp.com/send?phone=1${telcliente}%0A
 *Quiero reservar para el:*%0A
 ${fecha} a las ${hora}%0A
-*Mi paseador sera:*%0A
-${empleado}%0A
-*Estara ciudando a:*%0A
-$🐾{perro}🐾%0A%0A
-Recuerden que *${perro}* es de genero ${gperro}, tamano ${tperro}, alergic@ a ${alperro} y tiene un comportamiento ${cperro}, ademas *${perro}* puede ser ${sperro}`;
+*El servicio de:*%0A
+${servicio}%0A
+*Para mi querid@:*%0A
+🐾${perro}🐾%0A%0A
+Recuerden que *${perro}* es *${gperro}* de tamano *${tperro}* con alergias a *${alperro}*, comportamiento *${cperro}* y *${perro}* puede ser *${sperro}.*%0A%0A
+*Comentario:*%0A
+${coment}`;
 
-  if (cliente === "" || fecha === "" || hora === "") {
+  if (cliente === "" || fecha === "" || hora === "" || alcliente === "" || telcliente === "" || servicio === "" || perro === "" || gperro === "" || tperro === "" || alperro === "" || cperro === "" || sperro === "" || coment === "") {
     resp.classList.add("fail");
-    resp.innerHTML = `Faltan algunos datos, ${cliente}`;
+    resp.innerHTML = `Para enviar el formulario tienes que completar todos los campos`;
     return false;
   }
   resp.classList.remove("fail");
   resp.classList.add("send");
-  resp.innerHTML = `Se ha enviado tu reserva, ${cliente}`;
+  resp.innerHTML = `Gracias ${cliente} Se ha enviado tu reserva a ChoLuCan`;
 
   window.open(url);
 });
