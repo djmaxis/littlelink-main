@@ -1,7 +1,10 @@
 const productos = [
-  { id: 1, nombre: 'Collar Rojo', precio: 100, imagen: 'imagenes/collarrojo.jpg' },
-  { id: 2, nombre: 'Sepillo dentel', precio: 200, imagen: 'imagenes/sepillo.jpg' },
-  { id: 3, nombre: 'Dispensador', precio: 300, imagen: 'imagenes/dispenser.jpg' },
+  { id: 1, nombre: 'Collar Rojo', precio: 150, imagen: 'imagenes/collarrojo.jpg' },
+  { id: 2, nombre: 'Sepillo dental', precio: 200, imagen: 'imagenes/sepillo.jpg' },
+  { id: 3, nombre: 'Dispensador', precio: 550, imagen: 'imagenes/dispenser.jpg' },
+  { id: 4, nombre: 'Cama', precio: 1800, imagen: 'imagenes/cama.jpg' },
+  { id: 5, nombre: 'Casita', precio: 3000, imagen: 'imagenes/casita.jpg' },
+  { id: 6, nombre: 'Piscina', precio: 825, imagen: 'imagenes/piscina.jpg' },
 ];
 
 const carrito = {};
