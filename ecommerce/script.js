@@ -6,13 +6,27 @@ const productos = [
 
 const carrito = {};
 
+// Archivo JavaScript
 function agregarAlCarrito(id, cantidad) {
   if (!carrito[id]) {
     carrito[id] = { ...productos.find(p => p.id === id), cantidad: 0 };
   }
   carrito[id].cantidad += cantidad;
   actualizarCarrito();
+
+  // Mostrar mensaje de cantidad en el carrito
+  const producto = carrito[id];
+  const mensaje = `Tienes ${producto.cantidad} ${producto.nombre} añadido al carrito.`;
+  const mensajeElement = document.getElementById(`mensaje-${id}`);
+  mensajeElement.textContent = mensaje;
+  mensajeElement.style.display = 'block';
+
+  // Ocultar el mensaje después de 3 segundos
+  setTimeout(() => {
+    mensajeElement.style.display = 'none';
+  }, 3000);
 }
+
 
 function eliminarDelCarrito(id) {
   delete carrito[id];
@@ -42,8 +56,7 @@ function enviarCarrito(e) {
   const direccion = document.getElementById('direccion').value;
   const metodo_pago = document.getElementById('metodo_pago').value;
 
-  let 
-  mensaje = `*Orden de compra*\n\n`;
+  let mensaje = `*Orden de compra*\n\n`;
   mensaje += `*Nombre:* ${nombre}\n`;
   mensaje += `*Teléfono:* ${telefono}\n`;
   mensaje += `*Dirección:* ${direccion}\n`;
@@ -74,6 +87,7 @@ function renderProductos() {
         <p>Precio: $${producto.precio}</p>
         <input type="number" id="cantidad-${producto.id}" value="1" min="1">
         <button onclick="agregarAlCarrito(${producto.id}, parseInt(document.getElementById('cantidad-${producto.id}').value))">Agregar al carrito</button>
+        <span id="mensaje-${producto.id}" class="mensaje"></span> <!-- Añadir el mensaje aquí -->
       </div>
     `;
 

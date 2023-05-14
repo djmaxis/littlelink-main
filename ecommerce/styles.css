@@ -92,3 +92,11 @@ button:hover {
   flex-wrap: wrap;
   gap: 4px; /* Ajusta este valor para controlar el espacio entre los productos */
 }
+
+/* Archivo CSS */
+.mensaje {
+  display: none;
+  color: green;
+  font-weight: bold;
+  margin-top: 5px;
+}

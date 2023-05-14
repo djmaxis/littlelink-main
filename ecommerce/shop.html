@@ -12,6 +12,8 @@
   </header>
   
   <main>
+	  // <div id="mensaje" style="display: none;"></div>
+	  <span id="mensaje-${producto.id}" class="mensaje"></span>
     <section id="productos">
       <!-- Aquí se agregarán los productos dinámicamente -->
     </section>
@@ -29,20 +31,21 @@
 
         <label for="telefono">Teléfono:</label>
         <input type="tel" id="telefono" required><br>
+		  
 
         <label for="direccion">Dirección:</label>
         <input type="text" id="direccion" required><br>
 
-        <label for="metodo_pago">Método de pago:</label>
+        <label for="metodo_pago">Selecciona el método de pago:</label>
         <select id="metodo_pago" required>
           <option value="efectivo">Efectivo</option>
           <option value="transferencia">Transferencia</option>
         </select><br>
 
-        <button type="submit" id="enviarCarrito">Enviar carrito por WhatsApp</button>
+        <center><button type="submit" id="enviarCarrito">Enviar carrito por WhatsApp</button></center>
       </form>
     </section>
-  </main>
+	   </main>
 
   <script src="script.js"></script>
 </body>
