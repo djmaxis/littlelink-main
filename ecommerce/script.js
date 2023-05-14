@@ -30,6 +30,15 @@ function agregarAlCarrito(id, cantidad) {
   }, 3000);
 }
 
+function actualizarCantidad(id, nuevaCantidad) {
+  if (nuevaCantidad <= 0) {
+    eliminarDelCarrito(id);
+  } else {
+    carrito[id].cantidad = nuevaCantidad;
+    actualizarCarrito();
+  }
+}
+
 
 function eliminarDelCarrito(id) {
   delete carrito[id];
@@ -46,7 +55,12 @@ function actualizarCarrito() {
   for (const id in carrito) {
     const producto = carrito[id];
     total += producto.precio * producto.cantidad;
-    carritoDiv.innerHTML += `<p>${producto.cantidad} Unidad de ${producto.nombre} a $${producto.precio} = $${producto.precio * producto.cantidad} <button class="eliminar-btn" onclick="eliminarDelCarrito(${id})">Eliminar</button></p>`;
+    carritoDiv.innerHTML += `
+      <p>
+        <input type="number" value="${producto.cantidad}" min="1" onchange="actualizarCantidad(${id}, parseInt(this.value))">
+        Unidad de ${producto.nombre} a $${producto.precio} = $${producto.precio * producto.cantidad}
+        <button onclick="eliminarDelCarrito(${id})">Eliminar</button>
+      </p>`;
   }
 
   totalSpan.textContent = total;
