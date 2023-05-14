@@ -1,7 +1,7 @@
 const productos = [
-  { id: 1, nombre: 'Collar de perro', precio: 100 },
-  { id: 2, nombre: 'Cartera de perro', precio: 200 },
-  { id: 3, nombre: 'Shampo', precio: 300 },
+  { id: 1, nombre: 'Collar Rojo', precio: 100, imagen: 'imagenes/collarrojo.jpg' },
+  { id: 2, nombre: 'Sepillo dentel', precio: 200, imagen: 'imagenes/sepillo.jpg' },
+  { id: 3, nombre: 'Dispensador', precio: 300, imagen: 'imagenes/dispenser.jpg' },
 ];
 
 const carrito = {};
@@ -14,6 +14,11 @@ function agregarAlCarrito(id, cantidad) {
   actualizarCarrito();
 }
 
+function eliminarDelCarrito(id) {
+  delete carrito[id];
+  actualizarCarrito();
+}
+
 function actualizarCarrito() {
   const carritoDiv = document.getElementById('carrito');
   const totalSpan = document.getElementById('total');
@@ -23,26 +28,38 @@ function actualizarCarrito() {
   for (const id in carrito) {
     const producto = carrito[id];
     total += producto.precio * producto.cantidad;
-    carritoDiv.innerHTML += `<p>${producto.nombre} - ${producto.cantidad} - $${producto.precio * producto.cantidad}</p>`;
+    carritoDiv.innerHTML += `<p>${producto.nombre} - ${producto.cantidad} - $${producto.precio * producto.cantidad} <button onclick="eliminarDelCarrito(${id})">Eliminar</button></p>`;
   }
 
   totalSpan.textContent = total;
 }
 
-function enviarCarrito() {
-  const telefono = "18295463303"; // Aquí debes ingresar el número de teléfono al que deseas enviar el mensaje
-  let mensaje = 'Resumen de compra: %0A%0A';
+function enviarCarrito(e) {
+  e.preventDefault();
+
+  const nombre = document.getElementById('nombre').value;
+  const telefono = document.getElementById('telefono').value;
+  const direccion = document.getElementById('direccion').value;
+  const metodo_pago = document.getElementById('metodo_pago').value;
+
+  let 
+  mensaje = `*Orden de compra*\n\n`;
+  mensaje += `*Nombre:* ${nombre}\n`;
+  mensaje += `*Teléfono:* ${telefono}\n`;
+  mensaje += `*Dirección:* ${direccion}\n`;
+  mensaje += `*Método de pago:* ${metodo_pago}\n\n`;
+  mensaje += '*Quiero ordenar estos productos:*\n';
   let total = 0;
 
   for (const id in carrito) {
     const producto = carrito[id];
     total += producto.precio * producto.cantidad;
-    mensaje += `${producto.nombre}: ${producto.cantidad} x $${producto.precio * producto.cantidad}%0A`;
+    mensaje += `${producto.cantidad} - ${producto.nombre} de $${producto.precio}  hacen: $${producto.precio * producto.cantidad}\n`;
   }
 
-  mensaje += `%0ATotal: $${total}%0A`;
+  mensaje += `\n*Total a pagar:* $${total}\n`;
 
-  const url = `https://api.whatsapp.com/send?phone=${telefono}&text=${mensaje}`;
+  const url = `https://api.whatsapp.com/send?phone=$18295463303&text=${encodeURIComponent(mensaje)}`;
   window.open(url, '_blank');
 }
 
@@ -52,6 +69,7 @@ function renderProductos() {
   productos.forEach(producto => {
     const productoDiv = `
       <div class="producto">
+        <img src="${producto.imagen}" alt="${producto.nombre}">
         <h3>${producto.nombre}</h3>
         <p>Precio: $${producto.precio}</p>
         <input type="number" id="cantidad-${producto.id}" value="1" min="1">
@@ -63,6 +81,7 @@ function renderProductos() {
   });
 }
 
-document.getElementById('enviarCarrito').addEventListener('click', enviarCarrito);
+document.getElementById('formulario').addEventListener('submit', enviarCarrito);
 renderProductos();
+actualizarCarrito();
 

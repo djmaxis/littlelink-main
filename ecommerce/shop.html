@@ -21,7 +21,26 @@
       <div id="carrito">
         <!-- Aquí se mostrará el resumen de los productos agregados al carrito -->
       </div>
-      <button id="enviarCarrito">Enviar carrito por WhatsApp</button>
+      <p>Total: $<span id="total">0</span></p>
+      
+      <form id="formulario">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" required><br>
+
+        <label for="telefono">Teléfono:</label>
+        <input type="tel" id="telefono" required><br>
+
+        <label for="direccion">Dirección:</label>
+        <input type="text" id="direccion" required><br>
+
+        <label for="metodo_pago">Método de pago:</label>
+        <select id="metodo_pago" required>
+          <option value="efectivo">Efectivo</option>
+          <option value="transferencia">Transferencia</option>
+        </select><br>
+
+        <button type="submit" id="enviarCarrito">Enviar carrito por WhatsApp</button>
+      </form>
     </section>
   </main>
 
