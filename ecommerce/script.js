@@ -1,10 +1,10 @@
 const productos = [
-  { id: 1, nombre: 'Collar Rojo', precio: 150 RD, imagen: 'imagenes/collarrojo.jpg' },
-  { id: 2, nombre: 'Sepillo dental', precio: 200 RD, imagen: 'imagenes/sepillo.jpg' },
-  { id: 3, nombre: 'Dispensador', precio: 550 RD, imagen: 'imagenes/dispenser.jpg' },
-  { id: 4, nombre: 'Cama', precio: 1800 RD, imagen: 'imagenes/cama.jpg' },
-  { id: 5, nombre: 'Casita', precio: 3000 RD, imagen: 'imagenes/casita.jpg' },
-  { id: 6, nombre: 'Ducha', precio: 825 RD, imagen: 'imagenes/piscina.jpg' },
+  { id: 1, nombre: 'Collar Rojo', precio: 150, imagen: 'imagenes/collarrojo.jpg' },
+  { id: 2, nombre: 'Sepillo dental', precio: 200, imagen: 'imagenes/sepillo.jpg' },
+  { id: 3, nombre: 'Dispensador', precio: 550, imagen: 'imagenes/dispenser.jpg' },
+  { id: 4, nombre: 'Cama', precio: 1800 , imagen: 'imagenes/cama.jpg' },
+  { id: 5, nombre: 'Casita', precio: 3000 , imagen: 'imagenes/casita.jpg' },
+  { id: 6, nombre: 'Ducha', precio: 825, imagen: 'imagenes/piscina.jpg' },
 ];
 
 const carrito = {};
@@ -45,8 +45,8 @@ function actualizarCarrito() {
 
   for (const id in carrito) {
     const producto = carrito[id];
-    total += producto.precio * producto.cantidad RD;
-    carritoDiv.innerHTML += `<p>${producto.cantidad} Unidad de ${producto.nombre} a $${producto.precio} RD = $${producto.precio * producto.cantidad} RD<button class="eliminar-btn" onclick="eliminarDelCarrito(${id})">Eliminar</button></p>`;
+    total += producto.precio * producto.cantidad;
+    carritoDiv.innerHTML += `<p>${producto.cantidad} Unidad de ${producto.nombre} a $${producto.precio} = $${producto.precio * producto.cantidad} <button class="eliminar-btn" onclick="eliminarDelCarrito(${id})">Eliminar</button></p>`;
   }
 
   totalSpan.textContent = total;
@@ -71,10 +71,10 @@ function enviarCarrito(e) {
   for (const id in carrito) {
     const producto = carrito[id];
     total += producto.precio * producto.cantidad;
-    mensaje += `${producto.cantidad} - ${producto.nombre} de $${producto.precio}  hacen: $${producto.precio * producto.cantidad} RD\n`;
+    mensaje += `${producto.cantidad} - ${producto.nombre} de $${producto.precio}  hacen: $${producto.precio * producto.cantidad}\n`;
   }
 
-  mensaje += `\n*Total a pagar:* $${total} RD\n`;
+  mensaje += `\n*Total a pagar:* $${total}\n`;
 
   const url = `https://api.whatsapp.com/send?phone=18295463303&text=${encodeURIComponent(mensaje)}`;
   window.open(url, '_blank');
