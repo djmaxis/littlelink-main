@@ -124,7 +124,9 @@
           
           
           <!-- Generic Shopping Bag -->
-          <a class="button button-default" href="ecommerce/shop.html"  role="button"><img class="icon" src="../littlelink-main/images/icons/generic-shopping-bag.svg" alt="">Visita nuestra tienda</a><br>
+          <a class="button button-default" href="ecommerce/shop.html" id="visita-tienda" role="button">
+  <img class="icon" src="../littlelink-main/images/icons/generic-shopping-bag.svg" alt="">Visita nuestra tienda
+</a>
           
           
           
@@ -142,8 +144,25 @@
     </div>
   </div>
 
-  <!-- End Document
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+ <script>
+  document.getElementById('visita-tienda').addEventListener('click', function (e) {
+    e.preventDefault();
+    if ('caches' in window) {
+      caches.keys().then(function (cacheNames) {
+        return Promise.all(
+          cacheNames.map(function (cacheName) {
+            return caches.delete(cacheName);
+          })
+        );
+      }).then(function () {
+        location.href = 'ecommerce/shop.html';
+      });
+    } else {
+      location.href = 'ecommerce/shop.html';
+    }
+  });
+</script>
+
 </body>
 
 </html>
