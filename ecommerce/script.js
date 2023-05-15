@@ -113,7 +113,7 @@ function enviarCarrito(e) {
         <h3>${producto.nombre}</h3>
         <p>Precio: $${producto.precio}</p>
         <input type="number" id="cantidad-${producto.id}" value="1" min="1">
-        <button onclick="agregarAlCarrito(${producto.id}, parseInt(document.getElementById('cantidad-${producto.id}').value))">Agregar al carrito</button>
+        <button onclick="agregarAlCarrito(${producto.id}, parseInt(document.getElementById('cantidad-${producto.id}').value))">Add</button>
         <button onclick="mostrarDetalles(${producto.id})">Detalles</button>
         <span id="mensaje-${producto.id}" class="mensaje"></span>
       </div>`;
@@ -132,11 +132,13 @@ function enviarCarrito(e) {
   const detallesContenedor = document.getElementById('detalles-contenedor');
   detallesContenedor.innerHTML = `
     <div class="detalles-popup" onclick="cerrarDetalles()">
-      <div class="detalles-contenido" onclick="event.stopPropagation()">
-        <button class="detalles-cerrar" onclick="cerrarDetalles()">X</button>
-        <h3>Especificaciones de ${producto.nombre}</h3>
-        <!-- Agrega aquí las especificaciones de cada producto -->
-        <p>${producto.descripcion}</p>
+      <div class="detalles-wrapper" onclick="event.stopPropagation()">
+        <div class="detalles-contenido">
+          <button class="detalles-cerrar" onclick="cerrarDetalles()">X</button>
+          <h3>Especificaciones de ${producto.nombre}</h3>
+          <!-- Agrega aquí las especificaciones de cada producto -->
+          <p>${producto.descripcion}</p>
+        </div>
       </div>
     </div>`;
   detallesContenedor.style.display = 'block';
@@ -147,6 +149,10 @@ function cerrarDetalles(id) {
   detallesPopup.style.display = 'none';
 }
 
+function cerrarDetalles() {
+  const detallesContenedor = document.getElementById('detalles-contenedor');
+  detallesContenedor.style.display = 'none';
+}
 	/*script popup*/
 	
 document.getElementById('formulario').addEventListener('submit', enviarCarrito);
