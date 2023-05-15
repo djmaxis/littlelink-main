@@ -1,6 +1,6 @@
 const productos = [
   { id: 1, nombre: 'Collar Rojo', precio: 150, imagen: 'imagenes/collarrojo.jpg', descripcion: 'Collar rojo de alta calidad para perros.' },
-  { id: 2, nombre: 'Sepillo dental', precio: 200, imagen: 'imagenes/sepillo.jpg', descripcion: 'Sepillo dental ergonómico para una limpieza profunda.' },
+  { id: 2, nombre: 'Cepillo dental', precio: 200, imagen: 'imagenes/sepillo.jpg', descripcion: 'Cepillo dental ergonómico para una limpieza profunda.' },
   { id: 3, nombre: 'Dispensador', precio: 550, imagen: 'imagenes/dispenser.jpg', descripcion: 'Dispensador automático de comida para mascotas.' },
   { id: 4, nombre: 'Cama', precio: 1800 , imagen: 'imagenes/cama.jpg', descripcion: 'Cama cómoda y suave para perros y gatos.' },
   { id: 5, nombre: 'Casita', precio: 3000 , imagen: 'imagenes/casita.jpg', descripcion: 'Casita de madera resistente para perros y gatos.' },
@@ -60,7 +60,7 @@ function actualizarCarrito() {
       <p>
         <input type="number" value="${producto.cantidad}" min="1" onchange="actualizarCantidad(${id}, parseInt(this.value))">
         Unidad de ${producto.nombre} a $${producto.precio} = $${producto.precio * producto.cantidad}
-        <button onclick="eliminarDelCarrito(${id})">Eliminar</button>
+        <button onclick="eliminarDelCarrito(${id})">x</button>
       </p>`;
   }
 
