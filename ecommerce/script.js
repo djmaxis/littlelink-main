@@ -59,7 +59,7 @@ function actualizarCarrito() {
     carritoDiv.innerHTML += `
       <p>
         <input type="number" value="${producto.cantidad}" min="1" onchange="actualizarCantidad(${id}, parseInt(this.value))">
-        Unidad de ${producto.nombre} a $${producto.precio} = $${producto.precio * producto.cantidad}
+        x ${producto.nombre} a $${producto.precio} = $${producto.precio * producto.cantidad}
         <button onclick="eliminarDelCarrito(${id})">x</button>
       </p>`;
   }
