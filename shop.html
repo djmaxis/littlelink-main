@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tienda en línea</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Tienda en línea  </h1>
+</header>
+  
+  <main>
+    <div id="mensaje" style="display: none;"></div>
+    <span id="mensaje-${producto.id}" class="mensaje"></span>
+    <section id="productos">
+      <!-- Aquí se agregarán los productos dinámicamente -->
+    </section>
+
+    <section id="carrito-section">
+      <h2>Carrito</h2>
+      <div id="carrito">
+        <!-- Aquí se mostrará el resumen de los productos agregados al carrito -->
+      </div>
+      <p>Total: $<span id="total">0</span></p>
+      
+      <form id="formulario">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" required><br>
+
+        <label for="telefono">Teléfono:</label>
+        <input type="tel" id="telefono" required><br>
+		  
+
+        <label for="direccion">Dirección:</label>
+        <input type="text" id="direccion" required><br>
+
+        <label for="metodo_pago">Selecciona el método de pago:</label>
+        <select id="metodo_pago" required>
+          <option value="efectivo">Efectivo</option>
+          <option value="transferencia">Transferencia</option>
+        </select><br>
+
+        <center><button type="submit" id="enviarCarrito">Enviar carrito por WhatsApp</button></center>
+      </form>
+    </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
