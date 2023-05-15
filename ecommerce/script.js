@@ -53,13 +53,14 @@ function actualizarCarrito() {
   carritoDiv.innerHTML = '';
   let total = 0;
 
-  for (const id in carrito) {
+  /*modificar datos mostrar en carrito*/
+	for (const id in carrito) {
     const producto = carrito[id];
     total += producto.precio * producto.cantidad;
     carritoDiv.innerHTML += `
       <p>
         <input type="number" value="${producto.cantidad}" min="1" onchange="actualizarCantidad(${id}, parseInt(this.value))">
-        x ${producto.nombre} a $${producto.precio} = $${producto.precio * producto.cantidad}
+        x ${producto.nombre} de $${producto.precio} = $${producto.precio * producto.cantidad}
         <button onclick="eliminarDelCarrito(${id})">x</button>
       </p>`;
   }
