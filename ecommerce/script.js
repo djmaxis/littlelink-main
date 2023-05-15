@@ -1,11 +1,12 @@
 const productos = [
-  { id: 1, nombre: 'Collar Rojo', precio: 150, imagen: 'imagenes/collarrojo.jpg' },
-  { id: 2, nombre: 'Sepillo dental', precio: 200, imagen: 'imagenes/sepillo.jpg' },
-  { id: 3, nombre: 'Dispensador', precio: 550, imagen: 'imagenes/dispenser.jpg' },
-  { id: 4, nombre: 'Cama', precio: 1800 , imagen: 'imagenes/cama.jpg' },
-  { id: 5, nombre: 'Casita', precio: 3000 , imagen: 'imagenes/casita.jpg' },
-  { id: 6, nombre: 'Ducha', precio: 825, imagen: 'imagenes/piscina.jpg' },
+  { id: 1, nombre: 'Collar Rojo', precio: 150, imagen: 'imagenes/collarrojo.jpg', descripcion: 'Collar rojo de alta calidad para perros.' },
+  { id: 2, nombre: 'Sepillo dental', precio: 200, imagen: 'imagenes/sepillo.jpg', descripcion: 'Sepillo dental ergonómico para una limpieza profunda.' },
+  { id: 3, nombre: 'Dispensador', precio: 550, imagen: 'imagenes/dispenser.jpg', descripcion: 'Dispensador automático de comida para mascotas.' },
+  { id: 4, nombre: 'Cama', precio: 1800 , imagen: 'imagenes/cama.jpg', descripcion: 'Cama cómoda y suave para perros y gatos.' },
+  { id: 5, nombre: 'Casita', precio: 3000 , imagen: 'imagenes/casita.jpg', descripcion: 'Casita de madera resistente para perros y gatos.' },
+  { id: 6, nombre: 'Ducha', precio: 825, imagen: 'imagenes/piscina.jpg', descripcion: 'Ducha plegable para refrescar a tus mascotas en días calurosos.' },
 ];
+
 
 const carrito = {};
 
@@ -99,8 +100,11 @@ function enviarCarrito(e) {
   window.open(url, '_blank');
 }
 
-function renderProductos() {
+ function renderProductos() {
   const productosDiv = document.getElementById('productos');
+  const detallesContenedor = document.createElement('div');
+  detallesContenedor.id = 'detalles-contenedor';
+  detallesContenedor.style.display = 'none';
 
   productos.forEach(producto => {
     const productoDiv = `
@@ -110,14 +114,41 @@ function renderProductos() {
         <p>Precio: $${producto.precio}</p>
         <input type="number" id="cantidad-${producto.id}" value="1" min="1">
         <button onclick="agregarAlCarrito(${producto.id}, parseInt(document.getElementById('cantidad-${producto.id}').value))">Agregar al carrito</button>
-        <span id="mensaje-${producto.id}" class="mensaje"></span> <!-- Añadir el mensaje aquí -->
-      </div>
-    `;
-
+        <button onclick="mostrarDetalles(${producto.id})">Detalles</button>
+        <span id="mensaje-${producto.id}" class="mensaje"></span>
+      </div>`;
     productosDiv.innerHTML += productoDiv;
   });
+
+  // Agregamos el contenedor de detalles al final del div 'productos'
+  productosDiv.appendChild(detallesContenedor);
 }
 
+
+	/*script popup*/
+	
+	function mostrarDetalles(id) {
+  const producto = productos.find(p => p.id === id);
+  const detallesContenedor = document.getElementById('detalles-contenedor');
+  detallesContenedor.innerHTML = `
+    <div class="detalles-popup" onclick="cerrarDetalles()">
+      <div class="detalles-contenido" onclick="event.stopPropagation()">
+        <button class="detalles-cerrar" onclick="cerrarDetalles()">X</button>
+        <h3>Especificaciones de ${producto.nombre}</h3>
+        <!-- Agrega aquí las especificaciones de cada producto -->
+        <p>${producto.descripcion}</p>
+      </div>
+    </div>`;
+  detallesContenedor.style.display = 'block';
+}
+
+function cerrarDetalles(id) {
+  const detallesPopup = document.getElementById(`detalles-${id}`);
+  detallesPopup.style.display = 'none';
+}
+
+	/*script popup*/
+	
 document.getElementById('formulario').addEventListener('submit', enviarCarrito);
 renderProductos();
 actualizarCarrito();
