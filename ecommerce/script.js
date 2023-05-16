@@ -1,11 +1,16 @@
-const productos = [
-  { id: 1, nombre: 'Collar Rojo', precio: 150, imagen: 'imagenes/collarrojo.jpg', descripcion: 'Collar rojo de alta calidad para perros.' },
-  { id: 2, nombre: 'Cepillo dental', precio: 200, imagen: 'imagenes/sepillo.jpg', descripcion: 'Cepillo dental ergonómico para una limpieza profunda.' },
-  { id: 3, nombre: 'Dispensador', precio: 550, imagen: 'imagenes/dispenser.jpg', descripcion: 'Dispensador automático de comida para mascotas.' },
-  { id: 4, nombre: 'Cama', precio: 1800 , imagen: 'imagenes/cama.jpg', descripcion: 'Cama cómoda y suave para perros y gatos.' },
-  { id: 5, nombre: 'Casita', precio: 3000 , imagen: 'imagenes/casita.jpg', descripcion: 'Casita de madera resistente para perros y gatos.' },
-  { id: 6, nombre: 'Ducha', precio: 825, imagen: 'imagenes/piscina.jpg', descripcion: 'Ducha plegable para refrescar a tus mascotas en días calurosos.' },
-];
+async function inicializar() {
+  const productos = await cargarProductos();
+  renderProductos(productos);
+  actualizarCarrito();
+}
+
+inicializar();
+
+async function cargarProductos() {
+  const response = await fetch('productos.json');
+  const data = await response.json();
+  return data;
+}
 
 
 const carrito = {};
@@ -101,7 +106,7 @@ function enviarCarrito(e) {
   window.open(url, '_blank');
 }
 
- function renderProductos() {
+function renderProductos(productos) {
   const productosDiv = document.getElementById('productos');
 
   productos.forEach(producto => {
@@ -119,6 +124,7 @@ function enviarCarrito(e) {
     productosDiv.innerHTML += productoDiv;
   });
 }
+
 
 
 	/*script popup*/
