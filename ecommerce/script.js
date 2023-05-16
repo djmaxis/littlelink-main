@@ -129,7 +129,7 @@ function renderProductos(productos) {
         <h3>${producto.nombre}</h3>
         <p>Precio: $${producto.precio}</p>
         <input type="number" id="cantidad-${producto.id}" value="1" min="1">
-        <button onclick="agregarAlCarrito(${producto.id}, parseInt(document.getElementById('cantidad-${producto.id}').value))">Add</button>
+        <button onclick="agregarAlCarrito(${producto.id}, parseInt(document.getElementById('cantidad-${producto.id}').value))">Añadir al carrito</button>
         <button onclick="mostrarDetalles(${producto.id})">Detalles</button>
         <span id="mensaje-${producto.id}" class="mensaje"></span>
       </div>`;
@@ -139,7 +139,6 @@ function renderProductos(productos) {
   // Agregamos el contenedor de detalles al final del div 'productos'
   productosDiv.appendChild(detallesContenedor);
 }
-
 
 	/*script popup*/
 	
@@ -159,6 +158,7 @@ function renderProductos(productos) {
     </div>`;
   detallesContenedor.style.display = 'block';
 }
+
 
 function cerrarDetalles(id) {
   const detallesPopup = document.getElementById(`detalles-${id}`);
