@@ -16,6 +16,15 @@ async function cargarProductos() {
   }
 }
 
+// Llamar a cargarProductos y luego renderizar los productos en la página
+cargarProductos().then(productos => {
+  if (productos) {
+    renderProductos(productos);
+    actualizarCarrito();
+  }
+});
+
+
 
 // Archivo JavaScript
 function agregarAlCarrito(id, cantidad) {
