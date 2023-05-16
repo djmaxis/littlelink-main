@@ -111,3 +111,28 @@ body {
 #respuesta.send {
   color: green;
 }
+
+
+
+
+.terminos-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.terminos-content {
+  display: inline-flex;
+}
+
+
+.terminos-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+  margin-top: 10px; /* Agrega esto para crear un espacio entre el botón de WhatsApp y los términos y condiciones */
+}
+
+.terminos-content {
+  display: inline-flex;
+}

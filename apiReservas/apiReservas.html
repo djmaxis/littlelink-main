@@ -181,17 +181,30 @@
 			 placeholder="Introduzca algun comentario o observaciones' "
        />
       
+	  
+	  
       <p>
     </p>
     <div id="respuesta"></div>
-<button id="submit" class="formulario__submit">Enviar a WhatsApp</button>
-	
-    
-	  
- <center><button type="button" onclick="window.location.href='../index.html';">Regresar</button></center>
+<button id="submit" class="formulario__submit">Enviar a WhatsApp  </button>
+<div class="terminos-container">
+  <div class="terminos-content">
+    <input type="checkbox" id="terminos" name="terminos" required />
+    <label for="terminos" style="margin-left: 5px;">
+      Aceptar los
+      <a href="#" id="termsLink">términos y condiciones</a>
+    </label>
+  </div>
+</div>
 
 	  
-<script src="js/form.js"></script>
+	  
+	<!--  
+ <center><button type="button" onclick="window.location.href='../index.html';">Regresar</button></center>
+-->
+	  
+    <script src="js/form.js"></script>
+    
 </form>
 </body>
 </html>
