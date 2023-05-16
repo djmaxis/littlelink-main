@@ -190,4 +190,26 @@ input[type="number"] {
 }
 
 
-/*boton x */
+/*stylo recuadro*/
+
+/* Estilos generales */
+.container {
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+/* Estilos para la sección del carrito */
+#carrito-section {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Estilos para el formulario */
+#formulario {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}

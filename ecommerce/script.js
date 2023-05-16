@@ -1,19 +1,21 @@
-async function inicializar() {
-  const productos = await cargarProductos();
-  renderProductos(productos);
-  actualizarCarrito();
-}
-
-inicializar();
-
-async function cargarProductos() {
-  const response = await fetch('productos.json');
-  const data = await response.json();
-  return data;
-}
 
 
 const carrito = {};
+
+
+async function cargarProductos() {
+  try {
+    const response = await fetch('productos.json');
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error al cargar los productos:', error);
+  }
+}
+
 
 // Archivo JavaScript
 function agregarAlCarrito(id, cantidad) {
@@ -64,14 +66,13 @@ function actualizarCarrito() {
     carritoDiv.innerHTML += `
       <p>
         <input type="number" value="${producto.cantidad}" min="1" onchange="actualizarCantidad(${id}, parseInt(this.value))">
-        x ${producto.nombre} de $${formatNumber(producto.precio)} = $${formatNumber(producto.precio * producto.cantidad)}
-        <button onclick="eliminarDelCarrito(${id})">Eliminar</button>
+        Unidad de ${producto.nombre} a $${producto.precio} = $${producto.precio * producto.cantidad}
+        <button onclick="eliminarDelCarrito(${id})">x</button>
       </p>`;
   }
 
-  totalSpan.textContent = formatNumber(total);
+  totalSpan.textContent = total;
 }
-
 
 function enviarCarrito(e) {
   e.preventDefault();
@@ -108,23 +109,27 @@ function enviarCarrito(e) {
 
 function renderProductos(productos) {
   const productosDiv = document.getElementById('productos');
+  const detallesContenedor = document.createElement('div');
+  detallesContenedor.id = 'detalles-contenedor';
+  detallesContenedor.style.display = 'none';
 
   productos.forEach(producto => {
     const productoDiv = `
       <div class="producto">
         <img src="${producto.imagen}" alt="${producto.nombre}">
         <h3>${producto.nombre}</h3>
-        <p>Precio: $${formatNumber(producto.precio)}</p>
+        <p>Precio: $${producto.precio}</p>
         <input type="number" id="cantidad-${producto.id}" value="1" min="1">
-        <button onclick="agregarAlCarrito(${producto.id}, parseInt(document.getElementById('cantidad-${producto.id}').value))">Agregar al carrito</button>
+        <button onclick="agregarAlCarrito(${producto.id}, parseInt(document.getElementById('cantidad-${producto.id}').value))">Add</button>
+        <button onclick="mostrarDetalles(${producto.id})">Detalles</button>
         <span id="mensaje-${producto.id}" class="mensaje"></span>
-      </div>
-    `;
-
+      </div>`;
     productosDiv.innerHTML += productoDiv;
   });
-}
 
+  // Agregamos el contenedor de detalles al final del div 'productos'
+  productosDiv.appendChild(detallesContenedor);
+}
 
 
 	/*script popup*/
@@ -155,14 +160,7 @@ function cerrarDetalles() {
   const detallesContenedor = document.getElementById('detalles-contenedor');
   detallesContenedor.style.display = 'none';
 }
-
 	/*script popup*/
-
-
-function formatNumber(number) {
-  return number.toLocaleString('en-US', { minimumFractionDigits: 0 });
-}
-
 	
 document.getElementById('formulario').addEventListener('submit', enviarCarrito);
 renderProductos();

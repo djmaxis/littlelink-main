@@ -18,20 +18,23 @@
       <!-- Aquí se agregarán los productos dinámicamente -->
     </section>
 
-    <section id="carrito-section">
-      <h2>Carrito</h2>
+     <section id="carrito-section">
+    
+    <div class="container">
+		<h2>Carrito</h2>
       <div id="carrito">
         <!-- Aquí se mostrará el resumen de los productos agregados al carrito -->
       </div>
       <p>Total: $<span id="total">0</span></p>
-      
+    </div>
+
+    <div class="container">
       <form id="formulario">
         <label for="nombre">Nombre:</label>
         <input type="text" id="nombre" required><br>
 
         <label for="telefono">Teléfono:</label>
         <input type="tel" id="telefono" required><br>
-		  
 
         <label for="direccion">Dirección:</label>
         <input type="text" id="direccion" required><br>
@@ -45,6 +48,8 @@
         <center><button type="submit" id="enviarCarrito">Enviar carrito por WhatsApp</button></center>
       </form>
     </section>
+	  
+	  
 </main>
 
 <script src="script.js"></script>
