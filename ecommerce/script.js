@@ -53,20 +53,20 @@ function actualizarCarrito() {
   carritoDiv.innerHTML = '';
   let total = 0;
 
-  /*modificar datos mostrar en carrito*/
-	for (const id in carrito) {
+  for (const id in carrito) {
     const producto = carrito[id];
     total += producto.precio * producto.cantidad;
     carritoDiv.innerHTML += `
       <p>
         <input type="number" value="${producto.cantidad}" min="1" onchange="actualizarCantidad(${id}, parseInt(this.value))">
-        x ${producto.nombre} de $${producto.precio} = $${producto.precio * producto.cantidad}
-        <button onclick="eliminarDelCarrito(${id})">x</button>
+        x ${producto.nombre} de $${formatNumber(producto.precio)} = $${formatNumber(producto.precio * producto.cantidad)}
+        <button onclick="eliminarDelCarrito(${id})">Eliminar</button>
       </p>`;
   }
 
-  totalSpan.textContent = total;
+  totalSpan.textContent = formatNumber(total);
 }
+
 
 function enviarCarrito(e) {
   e.preventDefault();
@@ -103,26 +103,21 @@ function enviarCarrito(e) {
 
  function renderProductos() {
   const productosDiv = document.getElementById('productos');
-  const detallesContenedor = document.createElement('div');
-  detallesContenedor.id = 'detalles-contenedor';
-  detallesContenedor.style.display = 'none';
 
   productos.forEach(producto => {
     const productoDiv = `
       <div class="producto">
         <img src="${producto.imagen}" alt="${producto.nombre}">
         <h3>${producto.nombre}</h3>
-        <p>Precio: $${producto.precio}</p>
+        <p>Precio: $${formatNumber(producto.precio)}</p>
         <input type="number" id="cantidad-${producto.id}" value="1" min="1">
-        <button onclick="agregarAlCarrito(${producto.id}, parseInt(document.getElementById('cantidad-${producto.id}').value))">Add</button>
-        <button onclick="mostrarDetalles(${producto.id})">Detalles</button>
+        <button onclick="agregarAlCarrito(${producto.id}, parseInt(document.getElementById('cantidad-${producto.id}').value))">Agregar al carrito</button>
         <span id="mensaje-${producto.id}" class="mensaje"></span>
-      </div>`;
+      </div>
+    `;
+
     productosDiv.innerHTML += productoDiv;
   });
-
-  // Agregamos el contenedor de detalles al final del div 'productos'
-  productosDiv.appendChild(detallesContenedor);
 }
 
 
@@ -154,7 +149,14 @@ function cerrarDetalles() {
   const detallesContenedor = document.getElementById('detalles-contenedor');
   detallesContenedor.style.display = 'none';
 }
+
 	/*script popup*/
+
+
+function formatNumber(number) {
+  return number.toLocaleString('en-US', { minimumFractionDigits: 0 });
+}
+
 	
 document.getElementById('formulario').addEventListener('submit', enviarCarrito);
 renderProductos();
