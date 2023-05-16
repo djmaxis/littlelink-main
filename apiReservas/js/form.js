@@ -111,15 +111,6 @@ ${coment}`;
   resp.classList.add("send");
   resp.innerHTML = `Gracias ${cliente} Se ha enviado tu reserva a ChoLuCan`;
 
-  window.open(url);
-});
-
-document.getElementById("termsLink").addEventListener("click", function (e) {
-  e.preventDefault();
-
-  const termsPopup = window.open("", "TermsPopup", "width=600,height=400,top=100,left=" + (window.innerWidth / 2 - 300));
-  termsPopup.document.write("<h1 style='text-align:center;'>Hola mundo</h1>");
-});
 
 document.querySelector("#submit").addEventListener("click", function (e) {
   const isTermsChecked = document.getElementById("terminos").checked;
