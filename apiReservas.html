@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="css/estilos.css" />
+</head>
+
+<body>
+    <form action="" class="formulario">
+        <img src="logo.jpg" class="imgLogo" />
+
+        <h3 class="formulario__subtitulo"></h3>
+        <p class="formulario__parrafo">
+            Formulario de registro
+        </p>
+
+        <label for="cliente" class="formulario__label">¿Cuál es tu nombre?</label>
+        <input id="cliente" type="text" class="formulario__input"
+            oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '')"
+            placeholder="Indica cuál es tu nombre completo" />
+
+        <label for="numerocliente" class="formulario__label">¿Número de teléfono?</label>
+        <input id="numerocliente" type="text" class="formulario__input"
+            oninput="this.value = this.value.replace(/[^0-9]/g, '')" pattern="^[2-9][0-9]*$"
+            placeholder="Número de teléfono sin guiones"
+            title="Por favor, introduzca un número que no comience con 1">
+
+        <label for="alcliente" class="formulario__label">¿Nombre de contacto de emergencia?</label>
+        <input id="alcliente" type="text" class="formulario__input"
+            oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '')"
+            placeholder="Nombre completo del contacto de emergencia" />
+
+        <label for="telcliente" class="formulario__label">¿Número de teléfono de contacto de emergencia?</label>
+        <input id="telcliente" type="text" class="formulario__input"
+            oninput="this.value = this.value.replace(/[^0-9]/g, '')" placeholder="Introduce número de teléfono"
+            required />
+
+        <span id="telError" style="display:none; color:red;">El número de teléfono debe contener exactamente 10 caracteres y comenzar con 809, 829 o 849.</span>
+
+        <label for="direccion" class="formulario__label">¿Dirección completa?</label>
+        <input id="direccion" type="text" class="formulario__input"
+            oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '')"
+            placeholder="Calle y número de la vivienda" />
+
+        <label for="sector" class="formulario__label">¿Sector?</label>
+        <input id="sector" type="text" class="formulario__input"
+            oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '')" placeholder="Indica el sector donde vives" />
+
+        <label for="perro" class="formulario__label">¿Cuál es el nombre de la mascota?</label>
+        <input id="perro" type="text" class="formulario__input"
+            oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '')"
+            placeholder="Indica cuál es el nombre de tu mascota" />
+
+        <label for="fechanacimiento" class="formulario__label">¿Fecha de nacimiento aproximada?</label>
+        <input id="fechanacimiento" type="date" class="formulario__input" placeholder="Selecciona una fecha" />
+
+        <label for="gperro" class="formulario__label">¿Género de la mascota?</label>
+        <select id="gperro" name="listagperro" class="formulario__input">
+            <option value="" disabled selected></option>
+            <option>Macho</option>
+            <option>Hembra</option>
+        </select>
+
+        <label for="tperro" class="formulario__label">¿Tamaño de la mascota?</label>
+        <select id="tperro" name="listatperro" class="formulario__input">
+            <option value="" disabled selected></option>
+            <option>Pequeño</option>
+            <option>Mediano</option>
+            <option>Grande</option>
+        </select>
+
+        <label for="placa" class="formulario__label">¿Tiene placa con sus respectivas informaciones?</label>
+        <input type="radio" id="siplaca" name="placa" value="si" required>
+        <label for="siplaca">Sí</label>
+        <br>
+        <input type="radio" id="noplaca" name="placa" value="no">
+        <label for="noplaca">No</label>
+        <p></p>
+
+        <label for="esteri" class="formulario__label">¿Está esterilizado/castrado?</label>
+        <input type="radio" id="siesteri" name="esteri" value="si" required>
+        <label for="siesteri">Sí</label>
+        <br>
+        <input type="radio" id="noesteri" name="esteri" value="no">
+        <label for="noesteri">No</label>
+        <p></p>
+
+        <label for="alperro" class="formulario__label">¿Es alérgico a algo o alguna comida?</label>
+        <input id="alperro" type="text" class="formulario__input"
+            oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '')" placeholder="Indica a qué es alérgico"
+            value="Ninguno" />
+
+        <label for="ttrata" class="formulario__label">¿Está en algún tratamiento médico?</label>
+        <input id="ttrata" type="text" class="formulario__input"
+            oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '')"
+            placeholder="Indica cuál es el medicamento que toma tu mascota" value="Ninguno" />
+
+        <label for="cperro" class="formulario__label">¿Comportamiento de la mascota?</label>
+        <select id="cperro" name="listacperro" class="formulario__input">
+            <option value="" disabled selected></option>
+            <option>Dócil</option>
+            <option>Agresivo</option>
+            <option>Amigable</option>
+        </select>
+
+        <label for="sperro" class="formulario__label">¿Convivencia con otras mascotas?</label>
+        <select id="sperro" name="listasperro" class="formulario__input">
+            <option value="" disabled selected></option>
+            <option>Sociable con otros perros</option>
+            <option>Antisocial con otros perros</option>
+        </select>
+
+       
+
+        <label for="coment" class="formulario__label">¿Observaciones o Comentarios?</label>
+        <input id="coment" type="text" class="formulario__input" value="Ninguno"
+            placeholder="Introduce algún comentario o observación" />
+
+        <p></p>
+        <div id="respuesta"></div>
+        <button id="submit" class="formulario__submit">Enviar a WhatsApp</button>
+        <div class="terminos-container">
+            <div class="terminos-content">
+                <input type="checkbox" id="terminos" name="terminos" required />
+                <label for="terminos" style="margin-left: 5px;">
+                    Aceptar los
+                    <a href="../terminosCondiciones.html" id="termsLink">terminos y condiciones</a>
+                </label>
+            </div>
+        </div>
+
+        <script src="js/form.js"></script>
+    </form>
+</body>
+
+</html>
