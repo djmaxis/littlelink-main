@@ -1,212 +1,139 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-        <link rel="stylesheet" href="css/estilos.css" />
-  </head>
+    <link rel="stylesheet" href="css/estilos.css" />
+</head>
+
 <body>
-  <form action="" class="formulario">
-    <img src="logo.jpg" class="imgLogo" />
+    <form action="" class="formulario">
+        <img src="logo.jpg" class="imgLogo" />
 
-    <h3 class="formulario__subtitulo">Reservas</h3>
-    <p class="formulario__parrafo">
-        Formulario para agendar un paseo canino
-    </p>
-	  
+        <h3 class="formulario__subtitulo"></h3>
+        <p class="formulario__parrafo">
+            Formulario de registro
+        </p>
 
-    
-      <label for="cliente" class="formulario__label">¿Cuál es tu nombre?</label>
-      <input
-        id="cliente"
-        type="text"
-        class="formulario__input"
-	    oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '')"
-        placeholder="Indica cuál es tu nombre completo"
-      />
-      
-      <label for="alcliente" class="formulario__label">Nombre Contacto de emergencias</label>
-      <input
-        id="alcliente"
-        type="text"
-        class="formulario__input"
-			 oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '')"
-        placeholder="Nombre completo del contacto emergencias"
-      />
-	
-	
-<label for="telcliente" class="formulario__label">Número de teléfono</label>
-<input
-  id="telcliente"
-  type="text"
-  class="formulario__input"
-  oninput="validarTelefono(this.value)"
-  placeholder="Introduzca número de teléfono"
-  required
-/>
-<span id="telError" style="display:none; color:red;">El número de teléfono debe contener exactamente 10 caracteres y comenzar con 809, 829 o 849.</span>
+        <label for="cliente" class="formulario__label">¿Cuál es tu nombre?</label>
+        <input id="cliente" type="text" class="formulario__input"
+            oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '')"
+            placeholder="Indica cuál es tu nombre completo" />
 
+        <label for="numerocliente" class="formulario__label">¿Número de teléfono?</label>
+        <input id="numerocliente" type="text" class="formulario__input"
+            oninput="this.value = this.value.replace(/[^0-9]/g, '')" pattern="^[2-9][0-9]*$"
+            placeholder="Número de teléfono sin guiones"
+            title="Por favor, introduzca un número que no comience con 1">
 
-      
-      
-      
-      <label for="perro" class="formulario__label">¿Cuál es el nombre de la mascota?</label>
-      <input
-        id="perro"
-        type="text"
-        class="formulario__input"
-			 oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '')"
-        placeholder="Indica cuál es el nombre de tu mascota"
-      />
-      
-      <label for="gperro" class="formulario__label" >Genero de la mascota</label>
-      <select id="gperro" name="listagperro" class="formulario__input">
-        <option value="" disabled selected></option>
-        <option>un macho</option>
-        <option>una hembrita</option>
-      </select>
-      
-      <label for="tperro" class="formulario__label" >Tamano del perro</label>
-      <select id="tperro" name="listatperro" class="formulario__input">
-        <option value="" disabled selected></option>
-        <option>pequeno</option>
-        <option>mediano</option>
-        <option>grande</option>
-      </select>
-      
-<label for="alerg" class="formulario__label">¿Tu perro es alérgico a algo?</label>
-<input type="radio" id="siAlergia" name="alerg" value="si" required>
-<label for="siAlergia">Sí</label>
-<br>
-<input type="radio" id="noAlergia" name="alerg" value="no">
-<label for="noAlergia">No</label>
-<p>
-	  </p>
+        <label for="alcliente" class="formulario__label">¿Nombre de contacto de emergencia?</label>
+        <input id="alcliente" type="text" class="formulario__input"
+            oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '')"
+            placeholder="Nombre completo del contacto de emergencia" />
 
-    
-  <label for="alperro" class="formulario__label">Indíquenos a qué es alérgico</label>
-  <input
-  id="alperro"
-  type="text"
-  class="formulario__input"
-  oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '')"
-  placeholder="Es importante que indiques sus alergias' "
-/>
-      
-      
-      
-  <label for="trata" class="formulario__label">¿Está en algún tratamiento?</label>
-  <input type="radio" id="sit" name="trata" value="si" required>
-  <label for="sit">Sí</label>
-  <br>
-  <input type="radio" id="not" name="trata" value="no">
-  <label for="not">No</label>
-    <p>
-	  </p>
-   
-      
-      
-      <label for="ttrata" class="formulario__label">¿Mencione cuál es el tratamiento?</label>
-      <input
-  id="ttrata"
-  type="text"
-  class="formulario__input"
-  oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '')"
-  placeholder="Indica cuál es el medicamento que toma tu mascota"
-/>
-      
-      
-      
-      
-      
-     <label for="horatra" class="formulario__label" id="horatra_label">A qué hora toma el medicamento</label>
-<input id="horatra" type="time" class="formulario__input" />
-		
-      
-      <label for="cperro" class="formulario__label" >Comportamiento del perro</label>
-      <select id="cperro" name="listacperro" class="formulario__input">
-        <option value="" disabled selected></option>
-        <option>Docil</option>
-        <option>Agresivo</option>
-        <option>Amigable</option>
-      </select>
-      
-      <label for="sperro" class="formulario__label"
-        >Convivencia con otros perros</label>
-      
-      <select id="sperro" name="listasperro" class="formulario__input">
-        <option value="" disabled selected></option>
-        <option>Sociable con otros perros</option>
-        <option>Antisociable con otros perros</option>
-      </select>
-      
-      
-      <label for="fecha" class="formulario__label"
-        >Indica la fecha de tu reserva</label
-      >
-      <input
-        id="fecha"
-        type="date"
-        class="formulario__input"
-        pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
-      />
-      
-      <label for="hora" class="formulario__label"
-        >Indica la hora de tu reserva</label
-      >
-      <input id="hora" type="time" class="formulario__input" />
-      
-      
-      
-      <label for="servicio" class="formulario__label"
-        >¿Cuál es el servicio que se desea realizar?</label      >
-      <select id="servicio" name="listaservicios" class="formulario__input">
-        <option value="" disabled selected></option>
-        <option>PAQUETE 1 - $2000</option>
-        <option>PAQUETE 2 - $3000</option>
-        <option>PAQUETE 3 - $4000</option>
-        <option>PAQUETE 4 - $5000</option>
-      </select>
-      
-      <label for="coment" class="formulario__label">Observaciones o Comentarios</label>
-      <input
-        id="coment"
-        type="text"
-        class="formulario__input"
-	     value="Ninguno"
-			 placeholder="Introduzca algun comentario o observaciones' "
-       />
-      
-	  
-	  
-      <p>
-    </p>
-    <div id="respuesta"></div>
-<button id="submit" class="formulario__submit">Enviar a WhatsApp  </button>
-<div class="terminos-container">
-  <div class="terminos-content">
-    <input type="checkbox" id="terminos" name="terminos" required />
-    <label for="terminos" style="margin-left: 5px;">
-      Aceptar los
-      <a href="../terminosCondiciones.html" id="termsLink">términos y condiciones</a>
-    </label>
-  </div>
-</div>
+        <label for="telcliente" class="formulario__label">¿Número de teléfono de contacto de emergencia?</label>
+        <input id="telcliente" type="text" class="formulario__input"
+            oninput="this.value = this.value.replace(/[^0-9]/g, '')" placeholder="Introduce número de teléfono"
+            required />
 
-	  
-	  
-	<!--  
- <center><button type="button" onclick="window.location.href='../index.html';">Regresar</button></center>
--->
-	  
-    <script src="js/form.js"></script>
-    
-</form>
+        <span id="telError" style="display:none; color:red;">El número de teléfono debe contener exactamente 10 caracteres y comenzar con 809, 829 o 849.</span>
+
+        <label for="direccion" class="formulario__label">¿Dirección completa?</label>
+        <input id="direccion" type="text" class="formulario__input"
+            oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '')"
+            placeholder="Calle y número de la vivienda" />
+
+        <label for="sector" class="formulario__label">¿Sector?</label>
+        <input id="sector" type="text" class="formulario__input"
+            oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '')" placeholder="Indica el sector donde vives" />
+
+        <label for="perro" class="formulario__label">¿Cuál es el nombre de la mascota?</label>
+        <input id="perro" type="text" class="formulario__input"
+            oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '')"
+            placeholder="Indica cuál es el nombre de tu mascota" />
+
+        <label for="fechanacimiento" class="formulario__label">¿Fecha de nacimiento aproximada?</label>
+        <input id="fechanacimiento" type="date" class="formulario__input" placeholder="Selecciona una fecha" />
+
+        <label for="gperro" class="formulario__label">¿Género de la mascota?</label>
+        <select id="gperro" name="listagperro" class="formulario__input">
+            <option value="" disabled selected></option>
+            <option>Macho</option>
+            <option>Hembra</option>
+        </select>
+
+        <label for="tperro" class="formulario__label">¿Tamaño de la mascota?</label>
+        <select id="tperro" name="listatperro" class="formulario__input">
+            <option value="" disabled selected></option>
+            <option>Pequeño</option>
+            <option>Mediano</option>
+            <option>Grande</option>
+        </select>
+
+        <label for="placa" class="formulario__label">¿Tiene placa con sus respectivas informaciones?</label>
+        <input type="radio" id="siplaca" name="placa" value="si" required>
+        <label for="siplaca">Sí</label>
+        <br>
+        <input type="radio" id="noplaca" name="placa" value="no">
+        <label for="noplaca">No</label>
+        <p></p>
+
+        <label for="esteri" class="formulario__label">¿Está esterilizado/castrado?</label>
+        <input type="radio" id="siesteri" name="esteri" value="si" required>
+        <label for="siesteri">Sí</label>
+        <br>
+        <input type="radio" id="noesteri" name="esteri" value="no">
+        <label for="noesteri">No</label>
+        <p></p>
+
+        <label for="alperro" class="formulario__label">¿Es alérgico a algo o alguna comida?</label>
+        <input id="alperro" type="text" class="formulario__input"
+            oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '')" placeholder="Indica a qué es alérgico"
+            value="Ninguno" />
+
+        <label for="ttrata" class="formulario__label">¿Está en algún tratamiento médico?</label>
+        <input id="ttrata" type="text" class="formulario__input"
+            oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '')"
+            placeholder="Indica cuál es el medicamento que toma tu mascota" value="Ninguno" />
+
+        <label for="cperro" class="formulario__label">¿Comportamiento de la mascota?</label>
+        <select id="cperro" name="listacperro" class="formulario__input">
+            <option value="" disabled selected></option>
+            <option>Dócil</option>
+            <option>Agresivo</option>
+            <option>Amigable</option>
+        </select>
+
+        <label for="sperro" class="formulario__label">¿Convivencia con otras mascotas?</label>
+        <select id="sperro" name="listasperro" class="formulario__input">
+            <option value="" disabled selected></option>
+            <option>Sociable con otros perros</option>
+            <option>Antisocial con otros perros</option>
+        </select>
+
+       
+
+        <label for="coment" class="formulario__label">¿Observaciones o Comentarios?</label>
+        <input id="coment" type="text" class="formulario__input" value="Ninguno"
+            placeholder="Introduce algún comentario o observación" />
+
+        <p></p>
+        <div id="respuesta"></div>
+        <button id="submit" class="formulario__submit">Enviar a WhatsApp</button>
+        <div class="terminos-container">
+            <div class="terminos-content">
+                <input type="checkbox" id="terminos" name="terminos" required />
+                <label for="terminos" style="margin-left: 5px;">
+                    Aceptar los
+                    <a href="../terminosCondiciones.html" id="termsLink">terminos y condiciones</a>
+                </label>
+            </div>
+        </div>
+
+        <script src="js/form.js"></script>
+    </form>
 </body>
+
 </html>
-
-
