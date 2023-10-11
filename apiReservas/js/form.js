@@ -1,48 +1,6 @@
-// para radio de alergico
-
-document.getElementById("siAlergia").addEventListener("click", function () {
-  document.getElementById("alperro").value = "";
-});
-
-document.getElementById("noAlergia").addEventListener("click", function () {
-  document.getElementById("alperro").value = "nada";
-});
-
-
-// // para radio de tratamiento
-	
-document.getElementById("sit").addEventListener("change", function () {
-  if (this.checked) {
-    document.getElementById("ttrata").value = "";
-  }
-});
-
-document.getElementById("not").addEventListener("change", function () {
-  if (this.checked) {
-    document.getElementById("ttrata").value = "Sin tratamiento";
-  }
-});
-
-document.getElementById("not").addEventListener("click", function () {
-  document.getElementById("horatra").style.display = "none";
-  document.getElementById("horatra_label").style.display = "none";
-});
-
-document.getElementById("sit").addEventListener("click", function () {
-  document.getElementById("horatra").style.display = "inline";
-  document.getElementById("horatra_label").style.display = "block";
-});
-
-//ejecuta ambos radios !!!cuidado!!!
-
-document.querySelector("#submit").addEventListener("click", e => {
-  e.preventDefault();
-	
-
-	//
-	
+// FunciÛn para validar el formato del n˙mero de telÈfono
 function validarTelefono(telefono) {
-  const telefonoValido = /^8(?:0[9]|2[89]|49)\d{7}$/.test(telefono); // Validar formato del n˙mero de telÈfono
+  const telefonoValido = /^8(?:0[9]|2[89]|49)\d{7}$/.test(telefono);
 
   const telError = document.getElementById('telError');
   if (telefonoValido) {
@@ -52,73 +10,83 @@ function validarTelefono(telefono) {
   }
 }
 
+document.querySelector("#submit").addEventListener("click", e => {
+  e.preventDefault();
 
-
-  //INGRESE UN NUMERO DE WHATSAPP VALIDO AQUI:
-	
-	
-  const telefono = "+18295463303";
+  // N˙mero de WhatsApp
+  const telefono = "+18292140255";
 
   const cliente = document.querySelector("#cliente").value;
+  const numerocliente = document.querySelector("#numerocliente").value;
+  const direccion = document.querySelector("#direccion").value;
+  const sector = document.querySelector("#sector").value;
   const perro = document.querySelector("#perro").value;
+  const fechanacimiento = document.querySelector("#fechanacimiento").value;
   const gperro = document.querySelector("#gperro").value;
   const tperro = document.querySelector("#tperro").value;
   const alperro = document.querySelector("#alperro").value;
+  const ttrata = document.querySelector("#ttrata").value;
   const cperro = document.querySelector("#cperro").value;
   const sperro = document.querySelector("#sperro").value;
-  const fecha = document.querySelector("#fecha").value;
-  const hora = document.querySelector("#hora").value;
-  const servicio = document.querySelector("#servicio").value;           
   const coment = document.querySelector("#coment").value;
-  const alcliente = document.querySelector("#alcliente").value;           
+  const alcliente = document.querySelector("#alcliente").value;
   const telcliente = document.querySelector("#telcliente").value;
-	
-  /*const trata = document.querySelector("#trata").value;*/
-	
-  const ttrata = document.querySelector("#ttrata").value;           
-  const horatra = document.querySelector("#horatra").value;
-	
+
   const resp = document.querySelector("#respuesta");
 
   resp.classList.remove("fail");
   resp.classList.remove("send");
 
   const url = `https://api.whatsapp.com/send?phone=${telefono}&text=
-		
-*Saludos!*%0A%0A
+*Saludos -Datos de registro-*%0A
 *Mi nombre es:*%0A
 ${cliente}%0A
-*Contacto de emergencias:*%0A
+*Numero de telefono:*%0A
+${numerocliente}%0A
+*Nombre de contacto de emergencia:*%0A
 ${alcliente}%0A
-*Telefono:*%0A
-https://api.whatsapp.com/send?phone=1${telcliente}%0A
-*Quiero reservar para el:*%0A
-${fecha} a las ${hora}%0A
-*El servicio de:*%0A
-${servicio}%0A
-*Para mi querid@:*%0A
-üêæ${perro}üêæ%0A%0A
-Recuerden que *${perro}* es *${gperro}* de tamano *${tperro}* con alergias a *${alperro}*, comportamiento *${cperro}*, ademas *${perro}* puede ser *${sperro}.* Actualente *${perro}*a utiliza este tipo de tratamiento: *${ttrata}* - ${horatra}%0A%0A
-*Comentario:*%0A
+*Numero de telefono de contacto de emergencia:*%0A
+${telcliente}%0A
+*Direccion:*%0A
+${direccion}%0A
+*Sector:*%0A
+${sector}%0A
+*Nombre de la mascota:*%0A
+${perro}%0A
+*Fecha de nacimiento de la mascota:*%0A
+${fechanacimiento}%0A
+*Genero de la mascota:*%0A
+${gperro}%0A
+*Tamano de la mascota:*%0A
+${tperro}%0A
+*Alergias de la mascota:*%0A
+${alperro}%0A
+*Tratamiento de la mascota:*%0A
+${ttrata}%0A
+*Comportamiento de la mascota:*%0A
+${cperro}%0A
+*Convivencia con otras mascotas:*%0A
+${sperro}%0A
+*Comentarios:*%0A
 ${coment}`;
 
-  if (cliente === "" || fecha === "" || hora === "" || alcliente === "" || telcliente === "" || servicio === "" || perro === "" || gperro === "" || tperro === "" || alperro === "" || cperro === "" || sperro === "" || coment === "") {
+  if (cliente === "" || numerocliente === "" || direccion === "" || sector === "" || perro === "" || fechanacimiento === "" || gperro === "" || tperro === "" || alperro === "" || ttrata === "" || cperro === "" || sperro === "" || alcliente === "" || telcliente === "" || coment === "") {
     resp.classList.add("fail");
-    resp.innerHTML = `Para enviar el formulario tienes que completar todos los campos`;
+    resp.innerHTML = `Faltan campos por completar.`;
     return false;
   }
+
   resp.classList.remove("fail");
   resp.classList.add("send");
-  resp.innerHTML = `Gracias ${cliente} Se ha enviado tu reserva a ChoLuCan`;
+  resp.innerHTML = `Gracias ${cliente}, tu informaciÛn ha sido enviada.`;
 
+  window.location.href = url;
+});
 
 document.querySelector("#submit").addEventListener("click", function (e) {
   const isTermsChecked = document.getElementById("terminos").checked;
   if (!isTermsChecked) {
     e.preventDefault();
-    alert("Por favor leer y aceptar los terminos");
+    alert("Por favor, lee y acepta los tÈrminos y condiciones");
   }
 });
-
-// AquÌ va el resto de tu cÛdigo JS
-
