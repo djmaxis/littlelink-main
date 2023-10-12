@@ -425,3 +425,7 @@ td,
 th {
   padding: 0;
 }
+
+.titulo-reducido {
+  font-size: 30px;
+}
